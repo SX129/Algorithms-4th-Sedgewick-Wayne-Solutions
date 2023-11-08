@@ -5,7 +5,7 @@ public class ex10 {
     public static void main(String[] args){
         int[] a;
         for (int i = 0; i < 10; i++){
-            a[i] = i * i;
+            //a[i] = i * i;
         }
         //Int array a is declared but is never initialized with the 'new' keyword.
     }
