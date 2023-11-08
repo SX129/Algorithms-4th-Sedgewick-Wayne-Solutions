@@ -4,26 +4,12 @@ public class ex11 {
     /*1.1.11 Write a code fragment that prints the contents of a two-dimensional boolean array,
     * using '*' to represent true and a space to represent false. Include row and column numbers. */
     public static void main(String[] args){
-        Boolean[][] myBooleanArray = new Boolean[4][4];
-        myBooleanArray[0][0] = true;
-        myBooleanArray[0][1] = false;
-        myBooleanArray[0][2] = true;
-        myBooleanArray[0][3] = false;
-
-        myBooleanArray[1][0] = false;
-        myBooleanArray[1][1] = true;
-        myBooleanArray[1][2] = false;
-        myBooleanArray[1][3] = true;
-
-        myBooleanArray[2][0] = true;
-        myBooleanArray[2][1] = false;
-        myBooleanArray[2][2] = true;
-        myBooleanArray[2][3] = false;
-
-        myBooleanArray[3][0] = true;
-        myBooleanArray[3][1] = true;
-        myBooleanArray[3][2] = true;
-        myBooleanArray[3][3] = true;
+        Boolean[][] myBooleanArray = {
+                {true, false, true, false},
+                {false, true, false, true},
+                {true, false, true, false},
+                {true, true, true, true},
+        };
 
         twoDArray(myBooleanArray);
     }
