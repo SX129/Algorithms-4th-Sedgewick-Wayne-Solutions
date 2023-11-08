@@ -15,6 +15,8 @@ public class ex12 {
         for (int i = 0; i < 10; i++){
             a[i] = a[a[i]];
         }
+
+        //Prints array.
         for(int i = 0; i < 10; i++){
             System.out.println(a[i]);
         }
