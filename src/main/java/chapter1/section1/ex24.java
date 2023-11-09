@@ -7,7 +7,7 @@ public class ex24 {
     * printing out the two arguments for each call on the recursive method.
     * Use your program to compute the greatest common divisor of 1111111 and 1234567.*/
     public static void main(String[] args) {
-        System.out.println(gcd(1111111, 1234567));
+        System.out.println(gcd(1234567, 1111111));
     }
 
     public static int gcd(int p, int q){
