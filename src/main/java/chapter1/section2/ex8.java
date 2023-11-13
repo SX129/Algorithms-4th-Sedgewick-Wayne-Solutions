@@ -7,9 +7,9 @@ public class ex8 {
         int[] a;
         int[] b;
 
-        int t = a;
-        a = b;
-        b = t;
+        //int t = a;
+        //a = b;
+        //b = t;
 
         // The code swaps the array references of variables a and b. It is reasonably efficient as the code copies the references rather than recreating them.
 
