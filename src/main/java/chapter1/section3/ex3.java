@@ -4,7 +4,7 @@ import edu.princeton.cs.algs4.Stack;
 import edu.princeton.cs.algs4.StdOut;
 
 public class ex3 {
-    /* Suppose that a client performs an intermixed sequence of (stack) push and
+    /* 1.3.3 Suppose that a client performs an intermixed sequence of (stack) push and
     * pop operations. The push operations put the integers 0 through 9 in order onto the stack;
     * the pop operations print out the return values. Which of the following sequence(s) could not occur? */
     public static void main(String[] args){
