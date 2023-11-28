@@ -5,8 +5,9 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Iterator;
 
 public class ex27<Item> implements Iterable<Item> {
-    /* 1.3.26 Write a method remove() that takes a linked list and a string key as arguments and removes
-    * all the nodes in the list that have key as its item field. */
+    /* 1.3.27 Write a method max() that takes a reference to the first node in a linked list as argument
+    * and returns the value of the maximum key in the list. Assume that all keys are positive integers,
+    * and return 0 if the list is empty. */
 
     private class Node{
         Item item;
