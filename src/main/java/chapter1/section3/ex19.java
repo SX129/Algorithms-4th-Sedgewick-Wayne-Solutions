@@ -1,10 +1,7 @@
 package chapter1.section3;
 
 import java.util.Iterator;
-import java.util.ListIterator;
-import java.util.StringJoiner;
 
-import edu.princeton.cs.algs4.StdOut;
 import org.jetbrains.annotations.NotNull;
 
 public class ex19<Item> implements Iterable<Item> {
