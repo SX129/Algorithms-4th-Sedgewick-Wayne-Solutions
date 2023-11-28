@@ -95,7 +95,7 @@ public class ex24<Item> implements Iterable<Item> {
 
         Node current;
 
-        for(current = first; current != null; current = curren.next){
+        for(current = first; current != null; current = current.next){
             if(current.item.equals(node.item)){
                 if(current.next != null){
                     current.next = current.next.next;
