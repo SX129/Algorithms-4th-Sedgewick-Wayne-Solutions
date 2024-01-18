@@ -1,88 +1,49 @@
 package chapter3;
 
-import org.w3c.dom.Node;
+public class SequentialSearchST<Key, Value> {
 
-public class SequentialSearchST<Key extends Comparable<Key>, Value> {
+    // This Symbol Table (ST) uses a private Node inner class to keep the keys and values in an unordered linked list.
+    // The get() implementation searches the list sequentially to find whether the key is in the table.
+    // The put() implementation also searches the list sequentially to check whether the key is in the table.
+    // If so, it updates the associated value; if not, it creates a new node with the given key and value and
+    // inserts it at the beginning of the list.
 
-    // This ST implementation keeps the keys and values in parallel arrays.
-    // The put() implementation moves larger keys one position to the right before growing the table.
+    private Node first;    // First node in the linked list
 
-    private Key[] keys;
-    private Value[] vals;
-    private int n;
-
-    public void BinarySearchST(int capacity)
+    private class Node // Linked-list node
     {
-        keys = (Key[]) new Comparable[capacity];
-        vals = (Value[]) new Object[capacity];
-    }
+        Key key;
+        Value val;
+        Node next;
 
-    public int size()
-    {
-        return n;
-    }
-
-    public Value get(Key key)
-    {
-        if (isEmpty())
+        public Node (Key key, Value val, Node next)
         {
-            return null;
-        }
-
-        int i = rank(key);
-
-        if ( i < n && keys[i].compareTo(key) == 0)
-        {
-            return vals[i]
-        }
-        else
-        {
-            return null;
+            this.key = key;
+            this.val = val;
+            this.next = next;
         }
     }
 
-    public int rank(Key key)        // Compute the number of keys in the table that are smaller than key.
-    {                               // Compare key with the key in the middle: if it is equal, return its index;
-        int lo = 0, hi = n - 1;     // If it is less, look in the left half; if it is greater, look in the right half.
-        while(lo <= hi)
-        {
-            int mid = lo + (hi - lo) / 2;
-            int cmp = key.compareTo(keys[mid]);
-            if (cmp < 0)
-            {
-                hi = mid - 1;
+    public Value get(Key key) // Search for key, return associated value.
+    {
+        for (Node x = first; x != null; x = x.next){
+            if (key.equals(x.key)){
+                return x.val;   // Search hit
             }
-            else if (cmp > 0)
-            {
-                lo = mid + 1;
-            }
-            else
-            {
-                return mid;
+        }
+        return null;    // Search miss
+    }
+
+    public void put (Key key, Value val) // Search for key. Update value if found; grow table if new.
+    {
+        for (Node x = first; x != null; x = x.next){
+            if (key.equals(x.key)){
+                x.val = val;        // Search hit: update val.
+                return;
             }
         }
 
-        return lo;
-    }
-
-    public void put(Key key, Value val)     // Search for key. Update value if found; grow table if new.
-    {
-        int i = rank(key);
-        if (i < n && keys[i].compareTo(key) == 0)
-        {
-            vals[i] = val;
-            return;
-        }
-
-        for (int j = n; j > i; j--)
-        {
-            keys[j] = keys[j-1];
-            vals[j] = vals[j-1];
-        }
-
-        keys[i] = key;
-        vals[i] = val;
-        n++;
+        first = new Node(key, val, first);      // Search miss: add new node.
     }
 
 }
